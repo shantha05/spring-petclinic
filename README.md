@@ -163,3 +163,40 @@ For additional details, please refer to the blog post [Hello DCO, Goodbye CLA: S
 ## License
 
 The Spring PetClinic sample application is released under version 2.0 of the [Apache License](https://www.apache.org/licenses/LICENSE-2.0).
+
+## User Story: API Endpoint for Greetings
+
+### Title
+As a PetClinic API consumer, I want an endpoint at `/api/greetings` so that I can receive a personalized greeting message.
+
+### Description
+Create a RESTful API endpoint `/api/greetings` that returns a greeting message. The endpoint should accept an optional `name` query parameter and respond with a JSON object containing a personalized greeting. If no name is provided, it should default to a generic greeting.
+
+### Acceptance Criteria
+
+#### Functional
+- [ ] The endpoint is accessible via `GET /api/greetings`.
+- [ ] If the `name` query parameter is provided, the response includes the name in the greeting.
+- [ ] If the `name` parameter is missing or empty, the response uses a default greeting (e.g., "Hello, World!").
+- [ ] The response is in JSON format: `{ "message": "Hello, <name>!" }`.
+
+#### Validation
+- [ ] The `name` parameter must be a non-empty string with a maximum length of 50 characters.
+- [ ] If the `name` parameter exceeds 50 characters or contains invalid characters (non-alphanumeric and spaces), return HTTP 400 with a descriptive error message.
+
+#### Security
+- [ ] The endpoint must not be vulnerable to injection attacks (e.g., XSS, SQL injection).
+- [ ] Input must be sanitized and validated.
+- [ ] The endpoint should be rate-limited to prevent abuse (e.g., 100 requests per minute per IP).
+- [ ] Ensure no sensitive information is leaked in error responses.
+
+#### Performance
+- [ ] The endpoint must respond within 200ms under normal load (up to 50 concurrent requests).
+- [ ] The endpoint should be stateless and lightweight.
+
+#### Ongoing Maintenance
+- [ ] The endpoint must include unit and integration tests covering all acceptance criteria.
+- [ ] API documentation (OpenAPI/Swagger) must be updated to describe the endpoint, parameters, and responses.
+- [ ] The code should follow project coding standards and be reviewed before merging.
+- [ ] Monitor logs for unusual activity or errors related to this endpoint.
+- [ ] Ensure the endpoint is covered by automated CI/CD pipelines for testing and deployment.
