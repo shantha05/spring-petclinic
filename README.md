@@ -163,3 +163,33 @@ For additional details, please refer to the blog post [Hello DCO, Goodbye CLA: S
 ## License
 
 The Spring PetClinic sample application is released under version 2.0 of the [Apache License](https://www.apache.org/licenses/LICENSE-2.0).
+
+---
+
+## User Story: US-001 - Create api/greetings Endpoint
+
+**As** an API consumer,  
+**I want** to have access to an endpoint at `api/greetings`,  
+**so that** I can receive a greeting message from the system.
+
+### Acceptance Criteria
+
+#### Functional
+- The endpoint `api/greetings` must accept HTTP GET requests.
+- When accessed, the endpoint must return a JSON response containing a greeting message (e.g., `"Hello, World!"`).
+- The response must include an HTTP status code of 200 (OK) on success.
+
+#### Validation
+- If the endpoint is accessed with an unsupported HTTP method, it must return a 405 Method Not Allowed status.
+- The greeting message must be a non-empty string.
+
+#### Security
+- The endpoint must not expose any sensitive information in the response.
+- The endpoint must be accessible without authentication (public).
+
+#### Documentation
+- The endpoint must be documented in the API specification (e.g., OpenAPI/Swagger).
+- Example requests and responses must be included in the documentation.
+
+**Identifier:** US-001
+
